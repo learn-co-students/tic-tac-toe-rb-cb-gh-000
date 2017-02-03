@@ -1,0 +1,71 @@
+
+./lib/tic_tac_toe.rb
+  WIN_COMBINATIONS
+    defines a constant WIN_COMBINATIONS with arrays for each win combination
+  #display_board
+    prints arbitrary arrangements of the board
+  #input_to_index
+    converts a user_input to an integer
+    subtracts 1 from the user_input
+    returns -1 for strings without integers
+  #move
+    does not allow for a default third argument
+    takes three arguments: board, position, and player token
+    allows "X" player in the bottom right and "O" in the top left
+  #position_taken?
+    returns true/false based on position in board
+  #valid_move?
+    returns true/false based on position
+  #turn
+    makes valid moves
+    asks for input again after a failed validation
+  #turn_count
+    counts occupied positions
+  #current_player
+    returns the correct player, X, for the third move
+  #won?
+    returns false for a draw
+    returns true for a win
+  #full?
+    returns true for a draw
+    returns false for an in-progress game
+  #draw?
+    calls won? and full?
+Cats Game!
+    returns true for a draw
+    returns false for a won game
+    returns false for an in-progress game
+  #over?
+Cats Game!
+    returns true for a draw
+    returns true for a won game
+    returns false for an in-progress game
+  #winner
+    return X when X won
+    returns O when O won
+    returns nil when no winner
+
+./lib/tic_tac_toe.rb
+  #play
+    asks for players input on a turn of the game
+    checks if the game is over after every turn
+    plays the first turn of the game
+    plays the first few turns of the game
+    checks if the game is won after every turn
+    checks if the game is draw after every turn
+    stops playing if someone has won
+    congratulates the winner X
+    congratulates the winner O
+    stops playing in a draw
+    prints "Cats Game!" on a draw
+    plays through an entire game
+
+./bin/tictactoe
+  prints "Welcome to Tic Tac Toe!"
+  `board` is an array with 9 strings with an empty space value, " "
+  calls #play passing in the board array
+
+Finished in 0.10334 seconds (files took 0.31201 seconds to load)
+43 examples, 0 failures
+
+Coverage report generated for RSpec to /home/mohamedsaleh-49046/code/labs/tic-tac-toe-rb-cb-gh-000/coverage. 68 / 68 LOC (100.0%) covered.

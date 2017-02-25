@@ -37,7 +37,7 @@ If you've been following along with the progression of Tic Tac Toe labs you've p
     ├── 03_cli_spec.rb
     └── spec_helper.rb
 ```
-
+ 
 #### Gemfile and Rakefile
 
 These files setup some tools and gems for our project and can mostly be ignored. Make sure to run `bundle` before starting this project so that you have all the required gems.

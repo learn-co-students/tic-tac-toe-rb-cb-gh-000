@@ -35,9 +35,11 @@ end
 
 def play(board)
   while !over?(board)
+    display_board(board)
     turn(board)
   end
 
+  display_board(board)
   if won?(board)
     win = winner(board)
     puts "Congratulations #{win}!"

@@ -22,9 +22,9 @@ rescue ArgumentError
   -1
 end
 
-def move(array, index, value)
+def move(arra, index, value)
 
-  array[index]=value
+  arra[index]=value
 end
 # code your #position_taken? method here!
 def position_taken?(board, index)

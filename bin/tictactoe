@@ -1,3 +1,8 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/tic_tac_toe'
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+allow($stdout).to receive(:puts)
+puts "Welcome to Tic Tac Toe!"
+display_board(board)
+play(board)

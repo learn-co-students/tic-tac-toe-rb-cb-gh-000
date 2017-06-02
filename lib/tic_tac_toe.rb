@@ -13,6 +13,7 @@ WIN_COMBINATIONS = [
   [0,4,8],
   [2,4,6]
 ]
+
 def won?(board)
   WIN_COMBINATIONS.detect do |win|
     win_index_1 = win[0]
@@ -28,11 +29,13 @@ def won?(board)
     end
   end
 end
+
 def full?(board)
   board.none? do |full|
     full.include?(" ")
   end
 end
+
 def draw?(board)
   if !won?(board) && full?(board)
     return true
@@ -40,6 +43,7 @@ def draw?(board)
     return false
   end
 end
+
 def over?(board)
   if won?(board) || full?(board)
     return true
@@ -47,6 +51,7 @@ def over?(board)
     return false
   end
 end
+
 def winner(board)
   WIN_COMBINATIONS.detect do |win|
     win_index_1 = win[0]
@@ -64,6 +69,7 @@ def winner(board)
     end
   end
 end
+
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -71,18 +77,26 @@ def display_board(board)
   puts "-----------"
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
+
 def valid_move?(board, index)
-  if position_taken?(board, index) == false && index >= 0 && index <= 8
+  if position_taken?(board, index) || index > 8 || index < 0
+    return false
+  else
     return true
   end
+
+
 end
+
 def input_to_index(input)
   index = input.to_i
   index -= 1
 end
+
 def move(board, index, char)
   board[index] = char
 end
+
 def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
@@ -92,7 +106,7 @@ def turn(board)
     display_board(board)
   else
     loop do
-      puts "Podaj prawidlowy numer"
+      puts "Please enter 1-9:"
       input = gets.strip
       index = input_to_index(input)
       if valid_move?(board, index) == true
@@ -103,6 +117,7 @@ def turn(board)
     end
   end
 end
+
 def turn_count(board)
   counter = 0
   board.each do |count|
@@ -120,6 +135,7 @@ def current_player(board)
     return "O"
   end
 end
+
 def play(board)
   until over?(board) == true
     turn(board)

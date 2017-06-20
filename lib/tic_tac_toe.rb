@@ -26,6 +26,7 @@ end
 def move(board, index, value)
   if valid_move?(board, index)
     board[index] = value
+    display_board(board)
   else
     turn(board)
   end

@@ -48,6 +48,7 @@ def turn(board)
 end
 
 def place_piece(board, value)
+  print "P#{current_player(board) == "X" ? 1 : 2}(#{current_player(board) == "X" ? "X" : "O"}) enter a number 1-9:"
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
@@ -123,12 +124,19 @@ end
 
 def play(board)
   if over?(board) == false
-    puts "Enter a number 1-9:"
+    display_board(board)
     turn(board)
     play(board)
   elsif won?(board)
+    display_board(board)
     puts "Congratulations #{winner(board)}!"
   else
     puts "Cats Game!"
   end
 end
+
+
+
+puts "Welcome to Tic Tac Toe!"
+board = Array.new(9, " ")
+play(board)

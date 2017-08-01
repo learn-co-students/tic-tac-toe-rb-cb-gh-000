@@ -1,3 +1,4 @@
+
 # Define your WIN_COMBINATIONS constant
 WIN_COMBINATIONS = [
   [0,1,2], #TOP row
@@ -10,7 +11,24 @@ WIN_COMBINATIONS = [
   [6,4,2]  #forward diagonals
 ]
 
-# Define a method display_board that prints a 3x3 Tic Tac Toe Board
+def play(board)
+  flag = true
+  while flag
+
+    input = gets.strip
+    player = current_player(board)
+    puts player
+    input_legit = input_to_index(input)
+    move(board, input_legit, player)
+    if over?(board)
+      flag = false
+    end
+  end
+  puts "end of game"
+end
+
+# Define display_board that accepts a board and prints
+# out the current state.
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -19,11 +37,10 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-#code your input_to_index and move method here!
 def input_to_index(position)
- pos = position.to_i
- pos = pos - 1
- return pos
+  pos = position.to_i
+  pos = pos - 1
+  return pos
 end
 
 def move(board, index, character)
@@ -42,7 +59,6 @@ def position_taken?(board, index)
   end
 end
 
-# code your #valid_move? method here
 def valid_move?(board, index)
   if(index >= 0 ) && (index <= 8)
     if position_taken?(board, index)
@@ -60,27 +76,27 @@ def turn(board)
   usr_input = gets.strip
   alt_input = input_to_index(usr_input)
   if valid_move?(board, alt_input)
-    move(board,alt_input, current_player(board))
-
+    move(board,alt_input, "X")
   else
     turn(board)
   end
-display_board(board)
+  display_board(board)
 end
 
 def turn_count(board)
   count = 0
-  board.each do |slot|
-    if (slot == "X") || (slot == "O")
-      count += 1
-    end
+  board.each do |index|
+    (index == "X" || index == "O") ? count += 1 : count += 0
   end
-
   return count
 end
 
 def current_player(board)
-  turn_count(board) % 2 == 0 ?  "X" :  "O"
+  if turn_count(board) % 2 == 0
+    return "X"
+  else
+    return "O"
+  end
 end
 
 def won?(board)
@@ -113,100 +129,84 @@ def won?(board)
       return win_combination
     end
   end
-
-  #draw?(board)
-
   return false
 end
 
 def draw?(board)
   #checks for draw
-
-  # if board[0] == "X" && board[1] == "X" && board[2] == "X"
-  #   return false
-  # elsif (board[0] == "X" && board[4] == "X" && board[8] == "X") || (board[2] == "X" && board[4] == "X" && board[6] == "X")
-  #   return false
-  # end
-  #if empty_space is true means there is an empty space
-  ## therefore board is not full
+  if won?(board)
+    return false
+  # else
+  #   return true
+  end
 
   if full?(board)
-    if won?(board) == false
-      return true
-    else
-      return false
-    end
-  else
-    return false
-  end
-
-  # if draw
-  #   return true
-  # else
-  #   return false
-  # end
-end
-
-def full?(board)
-  full = board.each do |slot|
-    if slot == "X" || slot == "O"
-      slot = true
-    else
-      return false
-    end
-  end
-
-  if full
     return true
   end
 
 
-  # inp = board.any? do |used|
-  #   if used == " " || used == ""
-  #     inp = true
-  #   end
-  # end
-  # if inp
-  #   return false
-  # else
-  #   return true
-  #
-  # end
+  if board[0] == "X" && board[1] == "X" && board[2] == "X"
+    return false
+  elsif (board[0] == "X" && board[4] == "X" && board[8] == "X") || (board[2] == "X" && board[4] == "X" && board[6] == "X")
+    return false
+  end
+  draw = board.all? do |occupied|
+    if occupied == "X" || occupied == "O"
+      occupied = true
+    end
+  end
+  if draw
+    return true
+  else
+    return false
+  end
 end
 
 def over?(board)
-  if won?(board) || draw?(board) || full?(board)
+  if draw?(board) || full?(board) || won?(board)
     return true
   else
     return false
+  end
+end
+
+def full?(board)
+
+  inP = board.all? do |used|
+    if used == "X" || used == "O"
+      inP = true
+    end
+  end
+
+  if inP
+    return true
+  else
+    return false
+  end
+
+  if draw?(board)
+    return true
+  # else
+  #   return false
   end
 end
 
 def winner(board)
-  if won?(board) == false
-    return nil
-  end
-  winning_position = won?(board)
-  win_index = winning_position[0]
-
-  position_1 = board[win_index]
-
-  #if winner return winner
-  return position_1
-  # end
-
-end
-
-
-def play(board)
-  until over?(board)
-    turn(board)
+  count_x = 0
+  count_o = 0
+  if won?(board) != false
+    board.each do |i|
+      if i == "X"
+        count_x += 1
+      end
+      if i == "O"
+        count_o += 1
+      end
+    end
+    count_x > count_o ? "X" : "O"
+  elsif over?(board)
+    return false
   end
 
-  if draw?(board)
-    puts "Cats Game!"
-  else
-    puts "Congratulations #{winner(board)}!"
-  end
 
 end

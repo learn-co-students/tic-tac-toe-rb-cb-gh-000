@@ -99,7 +99,7 @@ def play(board)
     turn(board)
   end
 
-  if draw?(board) == false || won?(board) != false
+  if won?(board) != false
     puts "Congratulations " + winner(board) + "!"
   else
     puts "Cats Game!"

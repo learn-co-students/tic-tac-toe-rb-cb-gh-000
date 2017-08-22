@@ -25,8 +25,8 @@ def input_to_index(user_input)
   user_input = user_input.to_i - 1
 end
 
-def move(board, index, character = "X")
-  board[index] = character
+def move(board, index, player)
+  board[index] = player
 end
 
 # Helper Method
@@ -40,14 +40,26 @@ def valid_move?(board, index)
 end
 
 #code your turn method here
+#def turn(board)
+#  puts "Please enter 1-9:"
+#  user_num = gets.to_i
+#  index = input_to_index(user_num)
+#  if valid_move?(board, index)
+#    move(board, index, current_player(board))
+#    display_board(board)
+#  else
+#    turn(board)
+#  end
+#end
+
 def turn(board)
-  puts "Please enter 1-9:"
-  user_num = gets.to_i
-  index = input_to_index(user_num)
-  if valid_move?(board, index)
-    board[index] = "X"
+  puts "Please enter a number between 1-9:"
+  input = gets.strip
+  if (valid_move?(board, input_to_index(input)))
+    move(board, input_to_index(input), current_player(board))
     display_board(board)
   else
+    puts "Invalid input!"
     turn(board)
   end
 end
@@ -60,7 +72,7 @@ def turn_count(board)
       count += 1
     end
   end
-  return count
+  count
 end
 
 #current_player method
@@ -117,9 +129,14 @@ def winner(board)
   end
 end
 
-# Define your play method below
 def play(board)
-  9.times do
+  while !over?(board)
     turn(board)
+  end
+
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  else
+    puts "Cats Game!"
   end
 end

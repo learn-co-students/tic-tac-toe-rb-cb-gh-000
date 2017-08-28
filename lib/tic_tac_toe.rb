@@ -59,7 +59,7 @@ def turn(board)
   input = gets.strip
   index = input_to_index(input)
   if valid_move?(board, index)
-    move(board, index)
+    move(board, index, current_player(board))
     display_board(board)
   else
     turn(board)
@@ -67,10 +67,13 @@ def turn(board)
 end
 
 def play(board)
-  count = 0
-  while count < 9
+  while !over?(board)
     turn(board)
-    count += 1
+  end
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
   end
 end
 
@@ -79,43 +82,32 @@ end
 # Determines if the game is won be any of the players
 
 def won?(board)
-  WIN_COMBINATIONS.each do |combination|
-    if ((board[combination[0]] == "X" && board[combination[1]] == "X" && board[combination[2]] == "X") || (board[combination[0]] == "O" && board[combination[1]] == "O" && board[combination[2]] == "O"))
-      return combination
-    end
+  WIN_COMBINATIONS.detect do |combo|
+    board[combo[0]] == board[combo[1]] &&
+    board[combo[1]] == board[combo[2]] &&
+    position_taken?(board, combo[0])
   end
-  nil
 end
 
 # Array -> Boolean
 # Returns True if the board array is full, false otherwise
 
 def full?(board)
-  board.none? do |cell|
-    cell == " "
-  end
+  board.all?{|token| token == "X" || token == "O"}
 end
 
 # Array -> Boolean
 # Returns true if the board has not been won and is full and false if the board is not won and the board is not full
 
 def draw?(board)
-  if full?(board) && !won?(board)
-    true
-  else
-    false
-  end
+   !won?(board) && full?(board)
 end
 
 # Array -> Boolean
 # Determines if the game is over
 
 def over?(board)
-  if  won?(board) || full?(board) || draw?(board)
-    true
-  else
-    false
-  end
+  won?(board) || draw?(board)
 end
 
 # Array -> String
@@ -128,5 +120,3 @@ def winner (board)
     nil
   end
 end
-
-play(["","","","","","","","",""])

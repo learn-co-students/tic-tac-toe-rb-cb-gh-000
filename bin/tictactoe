@@ -1,3 +1,14 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/tic_tac_toe'
+
+#the game board array - stores all moves
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+
+puts "Welcome to Tic Tac Toe!"
+
+#displays the board in a readable format - like a normal tic tac toe board
+display_board(board)
+
+#calls the play helper method which runs all other helper methods
+play(board)

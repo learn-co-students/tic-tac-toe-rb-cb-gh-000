@@ -1,1 +1,140 @@
+WIN_COMBINATIONS = [
+  [0,1,2],
+  [3,4,5],
+  [6,7,8],
+  [0,3,6],
+  [1,4,7],
+  [2,5,8],
+  [0,4,8],
+  [2,4,6],
+]
 
+def display_board(board)
+  puts " #{board[0]} | #{board[1]} | #{board[2]} "
+  puts "-----------"
+  puts " #{board[3]} | #{board[4]} | #{board[5]} "
+  puts "-----------"
+  puts " #{board[6]} | #{board[7]} | #{board[8]} "
+end
+
+def input_to_index(user_input)
+  return user_input.to_i - 1
+end
+
+def move(board, postion, token)
+  board[postion] = token
+end
+
+def position_taken?(board, position)
+  if board[position] == "O" || board[position] == "X"
+    return true
+  else
+    return false
+  end
+end
+
+def valid_move?(board, position)
+  if position >= board.size || position < 0
+    return false
+  end
+  if position_taken?(board, position)
+    return false
+  else
+    return true
+  end
+end
+
+def turn(board)
+  puts "please input valid number(1-9):"
+  input = gets.strip
+  index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board,index,current_player(board))
+    display_board(board)
+  else
+    puts "please input valid number(1-9):"
+    input = gets.strip
+    index = input_to_index(input)
+    move(board,index,current_player(board))
+    display_board(board)
+  end
+end
+
+def turn_count(board)
+  count = 0
+  board.each do | b |
+    if b == "X" || b == "O"
+      count = count + 1
+    end
+  end
+  return count
+end
+
+def current_player(board)
+  if turn_count(board).even?
+    return "X"
+  else
+    return "O"
+  end
+end
+
+def won?(board)
+  WIN_COMBINATIONS.each do |win_combination|
+    win_index_1 = win_combination[0]
+    win_index_2 = win_combination[1]
+    win_index_3 = win_combination[2]
+
+    position_1 = board[win_index_1]
+    position_2 = board[win_index_2]
+    position_3 = board[win_index_3]
+    if position_1 == "X" && position_2 == "X" && position_3 == "X"
+      return win_combination
+    elsif position_1 == "O" && position_2 == "O" && position_3 == "O"
+      return win_combination
+    end
+  end
+  return nil
+end
+
+def full?(board)
+  board.all?{|b| b == "X" || b == "O"}
+end
+
+def draw?(board)
+  if !full?(board)
+    return false
+  elsif won?(board).nil?
+    return true
+  else
+    return false
+  end
+end
+
+def over?(board)
+  if won?(board) || draw?(board)
+    true
+else
+  false
+  end
+end
+
+def winner(board)
+  b = won?(board)
+  if b == nil
+    return b
+  else
+    return board[b[0]]
+  end
+end
+
+#the play method is the method that rus the game using the helpr methods
+def play(board)
+  while !over?(board)
+    turn(board)
+  end
+  if won?(board)
+    puts "Congratulations #{winner(board)}!"
+  elsif draw?(board)
+    puts "Cat's Game!"
+  end
+end

@@ -119,31 +119,6 @@ describe './lib/tic_tac_toe.rb' do
     end
   end
 
-  describe '#turn' do
-    it 'makes valid moves' do
-      board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
-      allow($stdout).to receive(:puts)
-
-      expect(self).to receive(:gets).and_return("1")
-
-      turn(board)
-
-      expect(board).to match_array(["X", " ", " ", " ", " ", " ", " ", " ", " "])
-    end
-
-    it 'asks for input again after a failed validation' do
-      board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-
-      allow($stdout).to receive(:puts)
-
-      expect(self).to receive(:gets).and_return("invalid")
-      expect(self).to receive(:gets).and_return("1")
-
-      turn(board)
-    end
-  end
-
   describe '#turn_count' do
     it 'counts occupied positions' do
       board = ["O", " ", " ", " ", "X", " ", " ", " ", "X"]
@@ -197,10 +172,10 @@ describe './lib/tic_tac_toe.rb' do
       draw?(board)
     end
 
-    it 'calls full?' do 
+    it 'calls full?' do
       board = ["X", "O", "X", "O", "X", "X", "O", "X", "O"]
 
-      expect(self).to receive(:full?).with(board)      
+      expect(self).to receive(:full?).with(board)
       draw?(board)
     end
 

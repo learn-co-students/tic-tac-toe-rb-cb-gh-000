@@ -1,3 +1,9 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/tic_tac_toe'
+# Greet the player
+puts "Welcome to Tic Tac Toe!"
+# Initialize the empty board
+board = Array.new(9, " ")
+# Begin the game
+play(board)

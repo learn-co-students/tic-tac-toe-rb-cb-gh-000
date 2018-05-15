@@ -132,5 +132,9 @@ def play(board)
   while over?(board) == false do
     puts "Please enter a number between 1-9"
     turn(board)
+    if draw?(board)
+      break
+    end
   end
+  
 end

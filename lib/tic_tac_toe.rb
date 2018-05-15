@@ -132,13 +132,5 @@ def play(board)
   while over?(board) == false do
     puts "Please enter a number between 1-9"
     turn(board)
-    if over?(board)
-      if draw?(board)
-        puts "Cat's Game!"
-      elsif won?(board)
-        puts "Congratulations #{winner(board)}"
-      end
-      break
-    end
   end
 end

@@ -139,5 +139,7 @@ def play(board)
       break
     end
   end
-
+  if won?(board)
+    puts winner(board)
+  end
 end

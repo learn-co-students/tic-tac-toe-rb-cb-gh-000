@@ -135,7 +135,6 @@ def play(board)
     puts "Please enter a number between 1-9"
     turn(board)
     if draw?(board)
-      puts "Cat's Game!"
       break
     end
   end

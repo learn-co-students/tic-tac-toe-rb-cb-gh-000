@@ -10,8 +10,7 @@ def input_to_index(x)
   return x.to_i-1
 end
 
-def move(board,inp,turn)
-  ind=input_to_index(inp)
+def move(board,ind,turn)
   board[ind]=turn
 end
 
@@ -56,7 +55,7 @@ if (!valid_move?(board,inp))
   #turn(board)
   return
 end
-move(board,inp,current_player(board))
+move(board,input_to_index(inp),current_player(board))
 display_board(board)
 end
 

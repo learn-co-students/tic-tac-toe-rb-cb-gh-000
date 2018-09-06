@@ -46,10 +46,12 @@ def valid_move?(board, position)
 end
 
 def turn(board)
+  puts "Please enter a number:"
   user_input = gets.strip
   position = input_to_index(user_input)
   if valid_move?(board, position) == true
     player_move(board, position, current_player(board))
+    display_board(board)
   else
     turn(board)
   end

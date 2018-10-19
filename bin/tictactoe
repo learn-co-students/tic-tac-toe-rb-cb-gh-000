@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-
+#here goes the phases of the game
 require_relative '../lib/tic_tac_toe'
 
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]

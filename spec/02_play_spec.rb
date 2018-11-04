@@ -5,9 +5,11 @@ describe './lib/tic_tac_toe.rb' do
     it 'asks for players input on a turn of the game' do
       board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
       allow($stdout).to receive(:puts)
+      puts "1"
       allow(self).to receive(:over?).and_return(false, true)
-
+      puts "2"
       expect(self).to receive(:gets).at_least(:once).and_return("1")
+      puts "3"
 
       play(board)
     end

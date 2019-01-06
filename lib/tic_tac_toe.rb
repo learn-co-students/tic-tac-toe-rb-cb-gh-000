@@ -161,9 +161,17 @@ end
 
 
 def play(board)
-input=gets
-end
 
+until over?(board)==false
+do 
+turn(board)
+if won?(board)!=false
+  puts "Congratulations #{winner(board)}"
+elsif draw?(board)
+ puts "Cat's game"
+end
+end
+end
 
 
 

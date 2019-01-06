@@ -162,14 +162,11 @@ end
 
 def play(board)
 
-until over?(board)==false
-do 
-turn(board)
+turn(board) until over?(board)==true
 if won?(board)!=false
   puts "Congratulations #{winner(board)}"
 elsif draw?(board)
  puts "Cat's game"
-end
 end
 end
 

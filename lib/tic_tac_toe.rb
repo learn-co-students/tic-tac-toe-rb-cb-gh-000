@@ -59,9 +59,6 @@ end
 
 
 def over?(board)
-  if board == ['X', ' ', 'X', ' ', 'X', ' ', 'O', 'O', ' ']
-    return false
-  end
   won?(board) || draw?(board)
 end
 
@@ -95,10 +92,6 @@ def won?(board)
     return false
   end
 
-  if board == %w[X O X O X X O O X]
-    return true
-  end
-
   for win_combination in WIN_COMBINATIONS
     # win_combination is a 3 element array of indexes that compose a win, [0,1,2]
     # grab each index from the win_combination that composes a win.
@@ -122,9 +115,6 @@ def won?(board)
 end
 
 def winner(board)
-  if board == ["X", "O", " ", " ", " ", " ", " ", "O", "X"]
-    return nil
-  end
   if full?(board) || !won?(board)
     return nil
   end

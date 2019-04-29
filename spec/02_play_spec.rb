@@ -115,24 +115,24 @@ describe './lib/tic_tac_toe.rb' do
       play(board)
     end
 
-    # it 'plays through an entire game' do
-    #   board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
-    #   allow($stdout).to receive(:puts)
-    #
-    #   # expect(self).to receive(:turn).at_most(1000).times
-    #   expect(self).to receive(:gets).and_return("1")
-    #   expect(self).to receive(:gets).and_return("2")
-    #   expect(self).to receive(:gets).and_return("3")
-    #   expect(self).to receive(:gets).and_return("4")
-    #   expect(self).to receive(:gets).and_return("5")
-    #   expect(self).to receive(:gets).and_return("6")
-    #   expect(self).to receive(:gets).and_return("7")
-    #   allow(self).to receive(:gets).and_raise("CLI continues to ask for input after game should have ended")
-    #
-    #
-    #   expect($stdout).to receive(:puts).with("Congratulations X!")
-    #
-    #   play(board)
-    # end
+    it 'plays through an entire game' do
+      board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+      allow($stdout).to receive(:puts)
+    
+      # expect(self).to receive(:turn).at_most(1000).times
+      expect(self).to receive(:gets).and_return("1")
+      expect(self).to receive(:gets).and_return("2")
+      expect(self).to receive(:gets).and_return("3")
+      expect(self).to receive(:gets).and_return("4")
+      expect(self).to receive(:gets).and_return("5")
+      expect(self).to receive(:gets).and_return("6")
+      expect(self).to receive(:gets).and_return("7")
+      allow(self).to receive(:gets).and_raise("CLI continues to ask for input after game should have ended")
+    
+    
+      expect($stdout).to receive(:puts).with("Congratulations X!")
+    
+      play(board)
+    end
   end
 end

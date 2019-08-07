@@ -2,7 +2,9 @@
 
 require_relative '../lib/tic_tac_toe'
 
-board = []
-9.times { board.push(' ') }
+board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 
- play(board)
+puts "Welcome to Tic Tac Toe!"
+display_board(board)
+
+play(board)

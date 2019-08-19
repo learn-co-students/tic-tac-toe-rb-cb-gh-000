@@ -92,7 +92,7 @@ end
 # => board - current board state
 # => token - token symbol for the move, default = 'X'
 def turn(board)
-  token = current_player?(board)
+  token = current_player(board)
   loop do
     puts "Please enter 1-9:"
     input = gets.strip()

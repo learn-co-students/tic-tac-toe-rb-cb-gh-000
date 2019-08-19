@@ -75,6 +75,7 @@ def turn_count(board)
       count += 1
     end
   end
+  return count
 end
 # turn - execute a turn of tic-tac-toe-rb
 # => board - current board state

@@ -24,3 +24,8 @@ def display_board(board)
   puts separator
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
+
+# input_to_index: convert user string input to an integer input_to_index
+def input_to_index(input)
+  return input.to_i - 1
+end

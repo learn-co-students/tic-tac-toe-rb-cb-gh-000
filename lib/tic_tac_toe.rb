@@ -87,15 +87,16 @@ def current_player(board)
   turns =  turn_count(board)
   return turns % 2 == 0 ? 'X' : 'O'
 end
+
 # turn - execute a turn of tic-tac-toe-rb
 # => board - current board state
 # => token - token symbol for the move, default = 'X'
 def turn(board)
+  token = current_player?(board)
   loop do
     puts "Please enter 1-9:"
     input = gets.strip()
     index = input_to_index(input)
-    token = current_player?(board)
     if(valid_move?(board, index))
       move(board, index, token)
       break

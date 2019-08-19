@@ -56,6 +56,6 @@ end
 # => board - current board state
 # => index - index to check for validity
 # => move - token to place for the move
-def move(board, index, token = 'X')
+def move(board, index, token)
   board[index] = token
 end

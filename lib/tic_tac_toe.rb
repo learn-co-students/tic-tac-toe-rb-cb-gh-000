@@ -25,12 +25,12 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-# input_to_index: convert user string input to an integer input_to_index
+# input_to_index - convert user string input to an integer input_to_index
 def input_to_index(input)
   return input.to_i - 1
 end
 
-# position_taken?: determine if a position on the board is taken or not
+# position_taken? - determine if a position on the board is taken or not
 # => board - current board state
 # => index - index to check for availability
 # <= true - the position is taken
@@ -41,7 +41,7 @@ def position_taken?(board, index)
             board[index] == nil)
 end
 
-# valid_move?: determine if a requested move is valid_move
+# valid_move? - determine if a requested move is valid_move
 # => board - current board state
 # => index - index to check for validity
 # <= true - move is valid
@@ -50,4 +50,12 @@ def valid_move?(board, index)
   index_in_range = index >= 0 || index <= 8
   position_taken = position_taken?(board, index)
   return index_in_range && !position_taken
+end
+
+# move - process a user move
+# => board - current board state
+# => index - index to check for validity
+# => move - token to place for the move
+def move(board, index, token = "X")
+  board[index] = token
 end

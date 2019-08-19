@@ -36,9 +36,7 @@ end
 # <= true - the position is taken
 # <= false - the position is open
 def position_taken?(board, index)
-  return !( board[index] == "" ||
-            board[index] == " " ||
-            board[index] == nil)
+  return !( board[index] == "" || board[index] == " " || board[index] == nil)
 end
 
 # valid_move? - determine if a requested move is valid_move

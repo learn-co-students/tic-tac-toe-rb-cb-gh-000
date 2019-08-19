@@ -103,3 +103,11 @@ def turn(board)
     end
   end
 end
+
+ # full? - determine if the board is full
+ # => board - current board state
+ # <= true - if there are no open spaces on the board
+ # <= false - if there are open spaces on the board
+ def full?(board)
+   return board.all{ |space| space == 'X' || space == 'O'}
+ end

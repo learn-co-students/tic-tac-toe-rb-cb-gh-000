@@ -47,7 +47,7 @@ end
 # <= true - move is valid
 # <= false - move is invalid
 def valid_move?(board, index)
-  index_in_range = index >= 0 || index <= 8
+  index_in_range = index >= 0 & & index <= 8
   if (index_in_range == false)
     return false
   end

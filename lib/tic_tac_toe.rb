@@ -54,6 +54,7 @@ def valid_move?(board, index)
   position_taken = position_taken?(board, index)
   if(position_taken == true)
     return false
+  end
   return false
 end
 

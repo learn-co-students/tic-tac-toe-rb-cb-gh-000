@@ -56,7 +56,7 @@ def valid_move?(board, index)
   if(position_taken == true)
     return false
   end
-  return false
+  return true
 end
 
 # move - process a user move

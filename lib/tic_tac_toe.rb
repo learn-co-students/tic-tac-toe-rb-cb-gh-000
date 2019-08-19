@@ -12,3 +12,15 @@ WIN_COMBINATIONS = [
   [0,4,8],
   [2,4,6]
 ]
+
+# display_board - displays an arbitrary board state to the screen
+# => board - board state to display
+def display_board(board)
+  separator = ""
+  11.times{separator = separator + "-"}
+  puts " #{board[0]} | #{board[1]} | #{board[2]} "
+  puts separator
+  puts " #{board[3]} | #{board[4]} | #{board[5]} "
+  puts separator
+  puts " #{board[6]} | #{board[7]} | #{board[8]} "
+end

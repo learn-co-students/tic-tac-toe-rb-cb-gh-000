@@ -65,6 +65,7 @@ end
 def move(board, index, token)
   board[index] = token
 end
+
 # turn_count - counts occupied positions on the board
 # => board - current board state
 # <= count - the number of occupied spaces on the board
@@ -76,6 +77,15 @@ def turn_count(board)
     end
   end
   return count
+end
+
+# current_player - determines the current player
+# => board - current board state
+# <= 'X' - if the turn count is everything
+# <= 'O' - if the turn count is odd
+def current_player(board)
+  turns =  turn_count(board)
+  return turns % 2 == 0 ? 'X' : 'O'
 end
 # turn - execute a turn of tic-tac-toe-rb
 # => board - current board state

@@ -47,12 +47,11 @@ end
 # <= true - move is valid
 # <= false - move is invalid
 def valid_move?(board, index)
-  index_in_range = index >= 0 & & index <= 8
+  index_in_range = index >= 0 && index <= 8
   if (index_in_range == false)
     return false
   end
   position_taken = position_taken?(board, index)
-  puts "#{index}, In range: #{index_in_range}, Position taken #{position_taken}"
   if(position_taken == true)
     return false
   end

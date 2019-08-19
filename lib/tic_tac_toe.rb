@@ -36,7 +36,9 @@ end
 # <= true - the position is taken
 # <= false - the position is open
 def position_taken?(board, index)
-  return !( board[index] == "" || board[index] == " " || board[index] == nil)
+  return !( board[index] == "" || 
+  board[index] == " " || 
+  board[index] == nil)
 end
 
 # valid_move? - determine if a requested move is valid_move
@@ -46,8 +48,7 @@ end
 # <= false - move is invalid
 def valid_move?(board, index)
   index_in_range = index >= 0 || index <= 8
-  position_available = position_taken?(board, index)
-  return index_in_range && !failed_position
+  return index_in_range && !position_taken(board,index)
 end
 
 # move - process a user move

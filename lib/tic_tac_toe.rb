@@ -52,7 +52,7 @@ def valid_move?(board, index)
     return false
   end
   position_taken = position_taken?(board, index)
-  puts ("#{index}, In range: #{index_in_range}, Position taken #{position_taken}")
+  puts "#{index}, In range: #{index_in_range}, Position taken #{position_taken}"
   if(position_taken == true)
     return false
   end+

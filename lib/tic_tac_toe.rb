@@ -65,15 +65,26 @@ end
 def move(board, index, token)
   board[index] = token
 end
-
+# turn_count - counts occupied positions on the board
+# => board - current board state
+# <= count - the number of occupied spaces on the board
+def turn_count(board)
+  count = 0
+  board.each do |space|
+    if space == 'X' || space == 'O'
+      count += 1
+    end
+  end
+end
 # turn - execute a turn of tic-tac-toe-rb
 # => board - current board state
 # => token - token symbol for the move, default = 'X'
-def turn(board, token = 'X')
+def turn(board)
   loop do
     puts "Please enter 1-9:"
     input = gets.strip()
     index = input_to_index(input)
+    token = current_player?(board)
     if(valid_move?(board, index))
       move(board, index, token)
       break

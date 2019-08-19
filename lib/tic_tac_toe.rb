@@ -46,7 +46,7 @@ end
 # <= false - move is invalid
 def valid_move?(board, index)
   index_in_range = index >= 0 || index <= 8
-  failed_position = board[index] == 'X' || board[index] == 'O'
+  position_available = position_taken?(board, index)
   return index_in_range && !failed_position
 end
 

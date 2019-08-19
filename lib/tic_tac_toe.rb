@@ -46,8 +46,9 @@ end
 # <= false - move is invalid
 def valid_move?(board, index)
   index_in_range = index >= 0 || index <= 8
-  space_open = !position_taken?(board, index)
-  return index_in_range && space_open
+  if index_in_range == false
+    return index_in_range
+  return !position_taken?(board, index)
 end
 
 # move - process a user move

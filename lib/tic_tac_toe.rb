@@ -33,8 +33,21 @@ end
 # position_taken?: determine if a position on the board is taken or not
 # => board - current board state
 # => index - index to check for availability
+# <= true - the position is taken
+# <= false - the position is open
 def position_taken?(board, index)
   return !( board[index] == "" ||
             board[index] == " " ||
             board[index] == nil)
+end
+
+# valid_move?: determine if a requested move is valid_move
+# => board - current board state
+# => index - index to check for validity
+# <= true - move is valid
+# <= false - move is invalid
+def valid_move?(board, index)
+  index_in_range = index >= 0 || index <= 8
+  position_taken = position_taken?(board, index)
+  return index_in_range && !position_taken
 end

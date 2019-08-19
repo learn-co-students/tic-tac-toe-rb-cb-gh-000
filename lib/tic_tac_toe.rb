@@ -36,8 +36,8 @@ end
 # <= true - the position is taken
 # <= false - the position is open
 def position_taken?(board, index)
-  return !( board[index] == "" || 
-  board[index] == " " || 
+  return !( board[index] == "" ||
+  board[index] == " " ||
   board[index] == nil)
 end
 

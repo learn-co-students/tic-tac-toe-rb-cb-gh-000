@@ -29,3 +29,12 @@ end
 def input_to_index(input)
   return input.to_i - 1
 end
+
+# position_taken?: determine if a position on the board is taken or not
+# => board - current board state
+# => index - index to check for availability
+def position_taken?(board, index)
+  return !( board[index] == "" ||
+            board[index] == " " ||
+            board[index] == nil)
+end

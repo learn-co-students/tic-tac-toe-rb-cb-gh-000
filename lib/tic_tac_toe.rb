@@ -167,7 +167,7 @@ end
 # => board - a game board
 def play(board)
   n = 1
-  while n <= 1
+  while n <= 10
      turn(board)
   #   if(over?(board))
   #     token = winner(board)
@@ -179,5 +179,6 @@ def play(board)
   #     break
   #   end
     puts "Cat's Game!"
+    n += 1
   end
 end

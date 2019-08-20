@@ -175,7 +175,7 @@ def play(board)
     if(over?(board))
       token = winner(board)
       if(token != nil)
-        puts "Congratulations #{token}, You Won!"
+        puts "Congratulations #{token}!"
       else
         puts "Cat's Game!"
       end

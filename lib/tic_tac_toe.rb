@@ -101,7 +101,10 @@ def turn(board)
     index = input_to_index(input)
     if(valid_move?(board, index))
       move(board, index, token)
+<<<<<<< HEAD
       display_board(board)
+=======
+>>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
       made_move = true
     end
   end
@@ -113,7 +116,11 @@ end
  # <= false - if there are open spaces on the board
  def full?(board)
    return board.all?{ |space| space == 'X' || space == 'O'}
+<<<<<<< HEAD
  end
+=======
+ endn
+>>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
 
 # win? - determine if someones has won the game
 # => board - current board state
@@ -124,7 +131,12 @@ def won?(board)
   o_spaces = (0..board.size-1).select{ |idx| board[idx] == 'O'}
 
   WIN_COMBINATIONS.each do |win|
+<<<<<<< HEAD
     if win & x_spaces == win || win & o_spaces == win
+=======
+      if win & x_spaces == win ||
+         win & o_spaces == win
+>>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
       return win
     end
   end
@@ -170,6 +182,7 @@ end
 # => board - a game board
 def play(board)
   n = 0
+<<<<<<< HEAD
   until over?(board)
     turn(board)
   end
@@ -179,5 +192,19 @@ def play(board)
     puts "Congratulations #{token}!"
   else
     puts "Cat's Game!"
+=======
+  while n < 10
+    turn(board)
+    if(over?(board))
+      token = winner(board)
+      if(token != nil)
+        puts "Congratulations #{token}!"
+      else
+        puts "Cat's Game!"
+      end
+      break
+     end
+    n += 1
+>>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
   end
 end

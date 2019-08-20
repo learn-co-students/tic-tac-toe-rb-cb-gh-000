@@ -111,3 +111,20 @@ end
  def full?(board)
    return board.all?{ |space| space == 'X' || space == 'O'}
  end
+
+# win? - determine if someones has won the game
+# => board - current board state
+# <= win - a set of indices for a winning play
+# <= nil - if there is no winner
+def win?(board)
+  x_spaces = (0..board.size-1).select{ |idx| board[idx] == 'X'}
+  o_spaces = (0..board.size-1).select{ |idx| board[idx] == 'O'}
+
+  WIN_COMBINATIONS.each do |win|
+    if(win.to_set.subset?(x_spaces.to_set) ||
+       win.to_set.subset?(y_spaces.to_set))
+      return win
+    end
+  end
+  return nil
+end

@@ -101,10 +101,7 @@ def turn(board)
     index = input_to_index(input)
     if(valid_move?(board, index))
       move(board, index, token)
-<<<<<<< HEAD
       display_board(board)
-=======
->>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
       made_move = true
     end
   end

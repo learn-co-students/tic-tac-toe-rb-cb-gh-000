@@ -121,7 +121,7 @@ def won?(board)
   o_spaces = (0..board.size-1).select{ |idx| board[idx] == 'O'}
 
   WIN_COMBINATIONS.each do |win|
-    if win.to_set.subset?(x_spaces.to_set) || win.to_set.subset?(y_spaces.to_set)
+    if win.to_set.subset?(x_spaces.to_set) || win.to_set.subset?(o_spaces.to_set)
       return win
     end
   end

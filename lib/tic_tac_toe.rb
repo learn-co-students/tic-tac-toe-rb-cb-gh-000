@@ -127,3 +127,11 @@ def won?(board)
   end
   return false
 end
+
+# draw? - determines if the game is a draw
+# => board - current board state
+# <= true - the board is drawn
+# <= false - the board contains a win or is not yet fully
+def draw?(board)
+  return !won?(board) && full?(board)\
+end

@@ -178,5 +178,6 @@ def play(board)
   #     break
   #   end
   puts "Cat's Game!"
+  break
   end
 end

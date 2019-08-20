@@ -168,7 +168,7 @@ end
 def play(board)
   n = 1
   while n <= 10
-     turn(board)
+    turn(board)
   #   if(over?(board))
   #     token = winner(board)
   #     if(token != nil)

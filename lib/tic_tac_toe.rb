@@ -116,7 +116,7 @@ end
 # => board - current board state
 # <= win - a set of indices for a winning play
 # <= nil - if there is no winner
-def win?(board)
+def won?(board)
   x_spaces = (0..board.size-1).select{ |idx| board[idx] == 'X'}
   o_spaces = (0..board.size-1).select{ |idx| board[idx] == 'O'}
 

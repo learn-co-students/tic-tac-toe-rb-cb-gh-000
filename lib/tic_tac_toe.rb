@@ -133,5 +133,7 @@ end
 # <= true - the board is drawn
 # <= false - the board contains a win or is not yet fully
 def draw?(board)
-  return !won?(board) && full?(board)\
+  if(!full(board))
+    return false
+  return won(board) == false
 end

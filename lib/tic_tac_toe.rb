@@ -166,8 +166,7 @@ end
 # play - execute the game code
 # => board - a game board
 def play(board)
-  9.times
-  {
+  9.times do |i|
      turn(board)
   #   if(over?(board))
   #     token = winner(board)
@@ -179,5 +178,4 @@ def play(board)
   #     break
   #   end
     puts "Cat's Game!"
-  }
 end

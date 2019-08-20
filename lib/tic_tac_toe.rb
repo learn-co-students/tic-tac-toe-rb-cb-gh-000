@@ -138,3 +138,14 @@ def draw?(board)
   end
   return won?(board) == false
 end
+
+# over? - determines if the game is over
+# => board - current board state
+# <= true - if the game has ended
+# <= false - if the game can continue
+def over?(board)
+  if(won?(board) != false)
+    return true
+  end
+  return draw?(board)
+end

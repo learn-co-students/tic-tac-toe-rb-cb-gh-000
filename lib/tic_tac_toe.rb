@@ -168,7 +168,7 @@ end
 def play(board)
   9.times
   {
-  #   turn(board)
+     turn(board)
   #   if(over?(board))
   #     token = winner(board)
   #     if(token != nil)

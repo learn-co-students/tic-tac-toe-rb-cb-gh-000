@@ -124,12 +124,9 @@ def won?(board)
   o_spaces = (0..board.size-1).select{ |idx| board[idx] == 'O'}
 
   WIN_COMBINATIONS.each do |win|
-<<<<<<< HEAD
     if win & x_spaces == win || win & o_spaces == win
-=======
       if win & x_spaces == win ||
          win & o_spaces == win
->>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
       return win
     end
   end
@@ -175,7 +172,6 @@ end
 # => board - a game board
 def play(board)
   n = 0
-<<<<<<< HEAD
   until over?(board)
     turn(board)
   end
@@ -185,7 +181,6 @@ def play(board)
     puts "Congratulations #{token}!"
   else
     puts "Cat's Game!"
-=======
   while n < 10
     turn(board)
     if(over?(board))
@@ -198,6 +193,5 @@ def play(board)
       break
      end
     n += 1
->>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
   end
 end

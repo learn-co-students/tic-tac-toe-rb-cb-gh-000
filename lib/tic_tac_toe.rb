@@ -93,14 +93,17 @@ end
 # => token - token symbol for the move, default = 'X'
 def turn(board)
   token = current_player(board)
-  loop do
+  exec_count = 0
+  made_move = false
+  while !made_move && exec_count <= 5
     puts "Please enter 1-9:"
     input = gets.strip()
     index = input_to_index(input)
     if(valid_move?(board, index))
       move(board, index, token)
-      break
+      made_move = true
     end
+    exec_count += 1
   end
 end
 
@@ -168,7 +171,7 @@ end
 def play(board)
   n = 1
   while n <= 10
-  #  turn(board)
+    turn(board)
     if(over?(board))
       token = winner(board)
       if(token != nil)

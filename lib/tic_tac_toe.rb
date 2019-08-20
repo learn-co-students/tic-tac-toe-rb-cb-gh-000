@@ -166,7 +166,7 @@ end
 # play - execute the game code
 # => board - a game board
 def play(board)
-  9.times do
+  loop do
     turn(board)
     if(over?(board))
       token = winner(board)

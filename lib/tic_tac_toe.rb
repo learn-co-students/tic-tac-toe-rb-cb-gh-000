@@ -149,3 +149,16 @@ def over?(board)
   end
   return draw?(board)
 end
+
+# winner - determine who won the game
+# => board - current board state
+# <= 'X' - the winner is 'X'
+# <= 'O' - the winner is 'O'
+# <= nil - there is no winner
+def winner(board)
+  win_state = won?(board)
+  if(win_state != false)
+    return board[win_state[0]]
+  end
+  return nil
+end

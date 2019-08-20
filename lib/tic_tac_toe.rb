@@ -168,16 +168,16 @@ end
 def play(board)
   n = 1
   while n <= 10
-    turn(board)
-  #   if(over?(board))
-  #     token = winner(board)
-  #     if(token != nil)
-  #       puts "Congratulations #{token}, You Won!"
-  #     else
-  #       puts "Cat's Game!"
-  #     end
-  #     break
-  #   end
+  #  turn(board)
+    if(over?(board))
+      token = winner(board)
+      if(token != nil)
+        puts "Congratulations #{token}, You Won!"
+      else
+        puts "Cat's Game!"
+      end
+      break
+     end
     puts "Cat's Game!"
     n += 1
   end

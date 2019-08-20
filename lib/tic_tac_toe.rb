@@ -181,7 +181,6 @@ def play(board)
       end
       break
      end
-    puts "Cat's Game!"
     n += 1
   end
 end

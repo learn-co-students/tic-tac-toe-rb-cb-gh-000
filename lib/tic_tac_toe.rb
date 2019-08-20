@@ -169,8 +169,8 @@ end
 # play - execute the game code
 # => board - a game board
 def play(board)
-  n = 1
-  while n <= 10
+  n = 0
+  while n < 10
     turn(board)
     if(over?(board))
       token = winner(board)

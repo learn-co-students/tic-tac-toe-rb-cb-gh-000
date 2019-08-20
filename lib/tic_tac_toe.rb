@@ -126,5 +126,5 @@ def win?(board)
       return win
     end
   end
-  return nil
+  return false
 end

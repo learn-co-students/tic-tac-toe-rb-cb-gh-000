@@ -113,11 +113,7 @@ end
  # <= false - if there are open spaces on the board
  def full?(board)
    return board.all?{ |space| space == 'X' || space == 'O'}
-<<<<<<< HEAD
  end
-=======
- endn
->>>>>>> e28656a5e52be612ebac8afc21d988911c9518cc
 
 # win? - determine if someones has won the game
 # => board - current board state

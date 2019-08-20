@@ -167,15 +167,16 @@ end
 # => board - a game board
 def play(board)
   loop do
-    turn(board)
-    if(over?(board))
-      token = winner(board)
-      if(token != nil)
-        puts "Congratulations #{token}, You Won!"
-      else
-        puts "Cat's Game!"
-      end
-      break
-    end
+  #   turn(board)
+  #   if(over?(board))
+  #     token = winner(board)
+  #     if(token != nil)
+  #       puts "Congratulations #{token}, You Won!"
+  #     else
+  #       puts "Cat's Game!"
+  #     end
+  #     break
+  #   end
+  puts "Cat's Game!"
   end
 end

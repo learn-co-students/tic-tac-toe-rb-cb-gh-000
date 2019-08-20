@@ -95,7 +95,7 @@ def turn(board)
   token = current_player(board)
   exec_count = 0
   made_move = false
-  while !made_move && exec_count <= 5
+  while !made_move || exec_count <= 5
     puts "Please enter 1-9:"
     input = gets.strip()
     index = input_to_index(input)

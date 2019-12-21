@@ -87,7 +87,7 @@ def over?(board)
 =begin
   if full?(board) == false && !won?(board)
     return false
-  elsif won?(board) == true || full?(board) == false   KISS KISS KISS
+  elsif won?(board) == true || full?(board) == false                            --------------->>>       KISS KISS KISS
     return true
   elsif   draw?(board) == true || full?(board) == true || won?(board) == true
     return true
@@ -104,7 +104,6 @@ def winner(board)
     return board[won?(board)[0]]
   end
 end
-
 
 def turn(board)
   display_board(board)
@@ -125,13 +124,10 @@ def play(board)
   end
 
   if draw?(board) == true
-    display_board(board)
     puts "Cat's Game!"
   elsif winner(board) == "X"
-    display_board(board)
     puts "Congratulations X!"
   elsif winner(board) == "O"
-    display_board(board)
     puts "Congratulations O!"
   end
 end

@@ -78,7 +78,7 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-def move(board, index, current_player = "X")
+def move(board, index, current_player)
   board[index] = current_player
 end
 
@@ -91,9 +91,29 @@ def valid_move?(board, index)
 end
 
 def turn(board)
+  puts "Your move: "
+  user_choice = input_to_index(gets.strip)
+  until valid_move?(board, user_choice)
+    puts "Pls enter new, valid position"
+    user_choice = input_to_index(gets.strip)
+  end
+  move(board, user_choice, current_player(board))
+  display_board(board)
+  board
 end
 
 # Define your play method below
 def play(board)
-  9.times{!over?(board) ? turn(board) : winner(board)}
+    until over?(board) || draw?(board)
+      board = turn(board)
+    end
+    winner = winner(board)
+    unless winner.nil?
+      puts "Congratulations #{winner}!"
+    else
+      puts "Cat's Game!"
+    end
 end
+
+board = ["X", "X", "X", " ", " ", " ", " ", " ", " "]
+play(board)

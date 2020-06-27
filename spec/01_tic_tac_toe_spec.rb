@@ -103,7 +103,7 @@ describe './lib/tic_tac_toe.rb' do
     it 'returns true/false based on position' do
       board = [' ', ' ', ' ', ' ', 'X', ' ', ' ', ' ', ' ']
 
-      position = 0
+      position = 1
       expect(valid_move?(board, position)).to be_truthy
 
       position = 4

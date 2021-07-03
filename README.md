@@ -11,6 +11,7 @@ to encapsulate the game logic.
 2.  Write a method that is responsible for the game loop in Tic Tac Toe
 3.  Code the main executable file that will run the game in the CLI
 
+
 ## The Final Product
 
 When complete, the game will look something like this when played:
